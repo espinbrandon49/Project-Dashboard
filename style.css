@@ -1,0 +1,298 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas:
+    'section1 section2'
+    'section1 section3';
+}
+
+/* SECTION 1 SECTION 1 SECTION 1 SECTION 1 
+items need to be links*/
+
+.section1 {
+  background-color: cornflowerblue;
+  grid-area: section1;
+}
+
+.section1Items {
+  display: grid;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  column-gap: 10px;
+  font-size: 20px;
+  padding-top: 15px;
+  grid-template-areas:
+    'dashboardSvg dashboardText'
+    'blankspaceD blankspaceD'
+    'homeSvg homeText'
+    'profileSvg profileText'
+    'messageSvg messageText'
+    'historySvg historyText'
+    'tasksSvg tasksText'
+    'communitiesSvg communitiesText'
+    'blankspace blankspace'
+    'settingsSvg settingsText'
+    'supportSvg supportText'
+    'privacySvg privacyText'
+  ;
+}
+
+.sec1text {}
+
+.sec1Svg {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.dashboardText {
+  grid-area: dashboardText;
+}
+
+#blankspaceD {
+  grid-area: blankspaceD;
+  padding: 20px;
+}
+
+.homeText {
+  grid-area: homeText;
+}
+
+.profileText {
+  grid-area: profileText;
+}
+
+.messageText {
+  grid-area: messageText;
+}
+
+.historyText {
+  grid-area: historyText;
+}
+
+.tasksText {
+  grid-area: tasksText;
+}
+
+.communitiesText {
+  grid-area: communitiesText;
+}
+
+#blankspace {
+  grid-area: blankspace;
+  padding: 20px;
+
+}
+
+.settingsText {
+  grid-area: settingsText;
+}
+
+.supportText {
+  grid-area: supportText;
+}
+
+.privacyText {
+  grid-area: privacyText;
+}
+
+.dashboardSvg {
+  grid-area: dashboardSvg;
+  margin-left: 20px;
+}
+
+.homeSvg {
+  grid-area: homeSvg;
+}
+
+.profileSvg {
+  grid-area: profileSvg;
+}
+
+.messageSvg {
+  grid-area: messageSvg;
+}
+
+.historySvg {
+  grid-area: historySvg;
+}
+
+.tasksSvg {
+  grid-area: tasksSvg;
+}
+
+.communitiesSvg {
+  grid-area: communitiesSvg;
+}
+
+.settingsSvg {
+  grid-area: settingsSvg;
+}
+
+.supportSvg {
+  grid-area: supportSvg;
+}
+
+.privacySvg {
+  grid-area: privacySvg;
+}
+
+/* SECTION 2 SECTION 2 SECTION 2 SECTION 2*/
+.section2 {
+  grid-area: section2;
+  background-color: aquamarine;
+}
+
+.section2Columns {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas:
+    'section2Col1 section2Col2';
+  border: 1px solid black;
+}
+
+.section2Col1 {
+  display: grid;
+  grid-area: section2Col1;
+  grid-template-columns: .10fr .10fr 1fr;
+  grid-template-areas:
+    'searchSvg searchInput searchInput'
+    'odinIcon odinIcon greeting ';
+  align-items: center;
+  justify-content: left;
+}
+
+.col1Items {
+  /*MAKE SECTION 1 AND SECTION 2 FIXED  section 1 stretch?*/
+
+}
+
+.searchSvg {
+  grid-area: searchSvg;
+  padding: 20px 10px 20px 20px;
+  margin-left: 30px;
+}
+
+.searchInput {
+  grid-area: searchInput;
+  background: rgb(211, 211, 211, 0.5);
+  border-radius: 30px;
+  font-size: large;
+  padding-left: 10px;
+  border: none;
+  height: 30px;
+}
+
+.odinIcon {
+  grid-area: odinIcon;
+  height: 85%;
+  justify-self: left;
+  background: yellow;
+  border-radius: 50%;
+  padding: 3px;
+  margin-left: 40px;
+}
+
+.greeting {
+  grid-area: greeting;
+  line-height: 30px;
+  margin-left: -10px;
+  /* allows a cell to infringe into another cell*/
+}
+
+.section2Col2 {
+  display: grid;
+  grid-area: section2Col2;
+  grid-template-areas:
+    'bellOdinName bellOdinName bellOdinName'
+    'buttons buttons buttons';
+}
+
+.col2Items {
+  margin-right: 60px;
+}
+
+.bellOdinName {
+  display: grid;
+  grid-auto-flow: column;
+  grid-area: bellOdinName;
+  justify-content: right;
+  column-gap: 30px;
+  padding-right: 10px;
+}
+
+.odinIcon2 {
+  height: 35%;
+  background: yellow;
+  border-radius: 50%;
+  padding: 3px;
+  margin-top: 10px;
+}
+
+.bellSvg {
+  padding: 20px 0px 20px 20px;
+}
+
+.odinName {
+  height: 30px;
+  padding-top: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-area: buttons;
+  justify-content: right;
+  column-gap: 30px;
+  padding-bottom: 20px;
+}
+
+button {
+  color: #fff;
+  background-color: #0095ff;
+  font-size: 13px;
+  padding: 6px .8em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30px;
+  text-decoration: none;
+  width: 90px;
+  height: 35px;
+  border: none;
+}
+
+/* SECTION 3 SECTION 3 SECTION 3 SECTION 3*/
+.section3 {
+  grid-area: section3;
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: 
+  'projects announcements';
+}
+.section3Items {
+  border: 1px solid black;
+}
+.projects {
+  grid-area: projects;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  gap: 20px;
+}
+.card {
+  height: 250px;
+  width: 250px;
+}
+.announcements {
+  grid-area: announcements;
+  display: grid;
+  grid-auto-flow: columns;
+}
