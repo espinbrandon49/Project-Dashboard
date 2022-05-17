@@ -1,7 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
+  font-weight: 700;
 }
 
 .container {
@@ -19,6 +20,7 @@ items need to be links*/
 .section1 {
   background-color: cornflowerblue;
   grid-area: section1;
+
 }
 
 .section1Items {
@@ -44,8 +46,6 @@ items need to be links*/
     'privacySvg privacyText'
   ;
 }
-
-.sec1text {}
 
 .sec1Svg {
   padding: 10px;
@@ -147,7 +147,9 @@ items need to be links*/
 /* SECTION 2 SECTION 2 SECTION 2 SECTION 2*/
 .section2 {
   grid-area: section2;
-  background-color: aquamarine;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0px 4px 5px lightblue;
 }
 
 .section2Columns {
@@ -155,7 +157,6 @@ items need to be links*/
   grid-template-columns: 3fr 2fr;
   grid-template-areas:
     'section2Col1 section2Col2';
-  border: 1px solid black;
 }
 
 .section2Col1 {
@@ -167,11 +168,6 @@ items need to be links*/
     'odinIcon odinIcon greeting ';
   align-items: center;
   justify-content: left;
-}
-
-.col1Items {
-  /*MAKE SECTION 1 AND SECTION 2 FIXED  section 1 stretch?*/
-
 }
 
 .searchSvg {
@@ -204,7 +200,7 @@ items need to be links*/
   grid-area: greeting;
   line-height: 30px;
   margin-left: -10px;
-  /* allows a cell to infringe into another cell*/
+
 }
 
 .section2Col2 {
@@ -273,26 +269,201 @@ button {
   grid-area: section3;
   background-color: aqua;
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas: 
-  'projects announcements';
+  grid-template-columns: 5fr 2fr;
+
+  grid-template-areas:
+    'projectsText text1'
+    'projects box1'
+    'projects text2'
+    'projects box2';
 }
-.section3Items {
-  border: 1px solid black;
+
+.projectsText {
+  grid-area: projectsText;
+  display: grid;
+  justify-content: left;
+  align-content: center;
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
+
 .projects {
   grid-area: projects;
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-content: start;
+  margin-left: 20px;
+  row-gap: 25px;
+  padding-bottom: 70px;
 }
+
 .card {
-  height: 250px;
-  width: 250px;
-}
-.announcements {
-  grid-area: announcements;
   display: grid;
-  grid-auto-flow: columns;
+  height: 200px;
+  width: 350px;
+  grid-template-rows: 2fr 1fr;
+  align-content: stretch;
+  background-color: orange;
+  border-radius: 7px;
+}
+
+.card>div {
+  margin-left: 10px;
+  padding: 20px;
+  background-color: white;
+}
+
+.cardTexts {
+  border-radius: 0px 7px 0px 0px;
+}
+
+.cardTexts>p {
+  font-weight: 300;
+  font-size: 14px;
+  padding-right: 60px;
+}
+
+.cardSvgs {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: end;
+  column-gap: 20px;
+  border-radius: 0px 0px 7px 0px;
+}
+
+.text1 {
+  grid-area: text1;
+  display: grid;
+  justify-content: left;
+  align-content: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.box1 {
+  grid-area: box1;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  margin-right: 30px;
+  align-content: start;
+  align-self: start;
+}
+
+.box1a {
+  display: grid;
+  align-self: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 7px 7px 0px 0px;
+}
+
+.box1b {
+  display: grid;
+  align-self: center;
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+}
+
+.box1c {
+  display: grid;
+  align-self: center;
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+  border: none;
+  border-radius: 0px 0px 7px 7px;
+}
+
+.box1p1 {
+  border-bottom: thin solid gray;
+}
+
+.box1>div>h5+p {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.sec3side2 {}
+
+.text2 {
+  grid-area: text2;
+  display: grid;
+  justify-content: left;
+  align-content: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.box2 {
+  grid-area: box2;
+  display: grid;
+  grid-auto-flow: row;
+  margin-right: 30px;
+  justify-content: stretch;
+
+}
+
+.box2all {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-content: start;
+  column-gap: 30px;
+  align-items: center;
+  background-color: white;
+  padding-left: 20px;
+}
+
+.box2a {
+  padding-top: 25px;
+  border-radius: 7px 7px 0 0;
+}
+
+.box2b {
+  padding-top: 25px;
+}
+
+.box2c {
+  padding-top: 25px;
+}
+
+.box2d {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-radius: 0 0 7px 7px;
+}
+
+.sec3Texts>p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.sec3Texts>p+p {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.sec3Svg {
+  width: 130%;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.dogSvg {
+  background-color: aliceblue;
+}
+
+.catSvg {
+  background-color: yellow;
+}
+
+.alienSvg {
+  background-color: lightcoral;
+}
+
+.penguinSvg {
+  background-color: pink;
 }
