@@ -47,21 +47,31 @@ items need to be links*/
   ;
 }
 
-@media screen and (max-width: 840px) and (min-width: 100px) {
+@media screen and (max-width: 970px) and (min-width: 100px) {
   .container {
     grid-template-columns: 85px 4fr;
+  }
+
+  .section2Col1 {
+    width: 160px;
   }
 
   .greeting {
     display: none;
   }
 
+  .bellSvg {
+    display: none;
+  }
+.sec3Svg {
+display: none;
+}
   .sec1text {
     display: none;
   }
 
   .searchInput {
-    margin-right: -100px;
+    margin-right: 00px;
   }
 
 }
@@ -182,48 +192,59 @@ items need to be links*/
 }
 
 .section2Col1 {
+
   display: grid;
   grid-area: section2Col1;
-  grid-template-columns: .10fr .10fr 1fr;
-  grid-template-areas:
-    'searchSvg searchInput searchInput'
-    'odinIcon odinIcon greeting ';
-  align-items: center;
-  justify-content: left;
+}
+
+.col1Items {
 
 }
 
-.col1Items {}
+.searchDiv {
+
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  grid-template-columns: .10fr 1fr;
+  margin-left: 20px;
+}
 
 .searchSvg {
-  grid-area: searchSvg;
-  padding: 20px 10px 20px 20px;
-  margin-left: 30px;
+  padding: 20px 20px 20px 20px;
+  justify-self: right;
 }
 
 .searchInput {
-  grid-area: searchInput;
+  display: grid;
   background: rgb(211, 211, 211, 0.5);
   border-radius: 30px;
   font-size: large;
   padding-left: 10px;
   height: 30px;
+}
 
+.greetingDiv {
+ 
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+
+  margin-left: 40px;
+  column-gap: 20px;
 }
 
 .odinIcon {
-  grid-area: odinIcon;
   background: yellow;
   border-radius: 100%;
   padding: 3px;
-  margin-left: 40px;
+  justify-self: right;
 }
 
 .greeting {
-  grid-area: greeting;
   line-height: 30px;
-  justify-self: start;
-  padding-left: 10px;
 }
 
 .section2Col2 {
@@ -438,6 +459,7 @@ button {
   background-color: white;
   padding-left: 20px;
   padding-right: 10px;
+
 }
 
 .box2a {
@@ -457,6 +479,7 @@ button {
   padding-top: 25px;
 
 }
+
 .box2e {
   padding-top: 25px;
   border-radius: 0 0 7px 7px;
