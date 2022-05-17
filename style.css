@@ -1,14 +1,14 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
 }
 
 .container {
   display: grid;
   grid-template-columns: minmax(80px, 300px) 4fr;
-  grid-template-rows: minmax(80px, 175px) 5fr;
+  grid-template-rows: minmax(80px, 200px) 5fr;
   grid-template-areas:
     'section1 section2'
     'section1 section3';
@@ -47,19 +47,26 @@ items need to be links*/
   ;
 }
 
-@media screen and (max-width: 800px) and (min-width: 100px) {
+@media screen and (max-width: 840px) and (min-width: 100px) {
   .container {
-    grid-template-columns: 80px 4fr;
-    }
-  
+    grid-template-columns: 85px 4fr;
+  }
+
+  .greeting {
+    display: none;
+  }
+
   .sec1text {
     display: none;
   }
+
+  .searchInput {
+    margin-right: -100px;
+  }
+
 }
 
-.sec1text {
-
-}
+.sec1text {}
 
 .sec1Svg {
   padding: 10px;
@@ -168,21 +175,25 @@ items need to be links*/
 
 .section2Columns {
   display: grid;
-grid-template-columns:1fr;
+  grid-template-columns: 4fr 1fr;
   grid-template-areas:
     'section2Col1 section2Col2';
+  column-gap: 20px;
 }
 
 .section2Col1 {
   display: grid;
   grid-area: section2Col1;
-  grid-template-columns: .10fr 1fr;
+  grid-template-columns: .10fr .10fr 1fr;
   grid-template-areas:
-    'searchSvg  searchInput'
-    'odinIcon greeting ';
+    'searchSvg searchInput searchInput'
+    'odinIcon odinIcon greeting ';
   align-items: center;
   justify-content: left;
+
 }
+
+.col1Items {}
 
 .searchSvg {
   grid-area: searchSvg;
@@ -196,8 +207,8 @@ grid-template-columns:1fr;
   border-radius: 30px;
   font-size: large;
   padding-left: 10px;
-  border: none;
   height: 30px;
+
 }
 
 .odinIcon {
@@ -211,7 +222,8 @@ grid-template-columns:1fr;
 .greeting {
   grid-area: greeting;
   line-height: 30px;
-  
+  justify-self: start;
+  padding-left: 10px;
 }
 
 .section2Col2 {
@@ -281,7 +293,7 @@ button {
   background-color: aqua;
   display: grid;
   grid-template-columns: 5fr 2fr;
-
+  column-gap: 20px;
   grid-template-areas:
     'projectsText text1'
     'projects box1'
@@ -308,12 +320,13 @@ button {
   margin-left: 20px;
   row-gap: 25px;
   padding-bottom: 70px;
+  column-gap: 20px;
 }
 
 .card {
   display: grid;
   height: 200px;
-  width: 350px;
+  width: minmax(350px);
   grid-template-rows: 2fr 1fr;
   align-content: stretch;
   background-color: orange;
@@ -397,8 +410,6 @@ button {
   font-size: 12px;
 }
 
-.sec3side2 {}
-
 .text2 {
   grid-area: text2;
   display: grid;
@@ -414,7 +425,7 @@ button {
   grid-auto-flow: row;
   margin-right: 30px;
   justify-content: stretch;
-
+  height: 100%;
 }
 
 .box2all {
@@ -426,6 +437,7 @@ button {
   align-items: center;
   background-color: white;
   padding-left: 20px;
+  padding-right: 10px;
 }
 
 .box2a {
@@ -443,7 +455,10 @@ button {
 
 .box2d {
   padding-top: 25px;
-  padding-bottom: 25px;
+
+}
+.box2e {
+  padding-top: 25px;
   border-radius: 0 0 7px 7px;
 }
 
