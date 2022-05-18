@@ -1,261 +1,484 @@
-<!DOCTYPE html>
-<html lang="en">
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
-  </style>
-  <title>Project Dashboard</title>
-</head>
+@media screen and (max-width: 945px) {
+  .container {
+    grid-template-columns: 85px 4fr;
+  }
 
-<body>
-  <div class="container">
-    <div class="section1">
-      <div class="section1Items">
-        <h3 class="dashboardText sec1text">Dashboard</h3>
-        <div id="blankspaceD" class="sec1text"></div>
-        <div class="homeText sec1text">Home</div>
-        <div class="profileText sec1text">Profile</div>
-        <div class="messageText sec1text">Messages</div>
-        <div class="historyText sec1text">History</div>
-        <div class="tasksText sec1text">Tasks</div>
-        <div class="communitiesText sec1text">Communities</div>
-        <div id="blankspace" class="sec1text"></div>
-        <div class="settingsText sec1text">Settings</div>
-        <div class="supportText sec1text">Support</div>
-        <div class="privacyText sec1text">Privacy</div>
+  .sec1text {
+    display: none;
+  }
+}
 
-        <svg class='dashboardSvg' style="width:48px;height:48px" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
-        </svg>
-        <svg class='homeSvg sec1Svg' style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
-        </svg>
+.container {
+  display: grid;
+  grid-template-columns: minmax(80px, 230px) 4fr;
+  grid-template-rows: minmax(80px, 200px) 5fr;
+  grid-template-areas:
+    'section1 section2'
+    'section1 section3';
+}
 
-        <svg class='messageSvg sec1Svg' style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M22,4C22,2.89 21.1,2 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H18L22,22V4Z" />
-        </svg>
+.section1 {
+  background-color: cornflowerblue;
+  grid-area: section1;
+  max-width: 300px;
+}
 
-        <svg class='profileSvg sec1Svg' style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M22,3H2C0.91,3.04 0.04,3.91 0,5V19C0.04,20.09 0.91,20.96 2,21H22C23.09,20.96 23.96,20.09 24,19V5C23.96,3.91 23.09,3.04 22,3M22,19H2V5H22V19M14,17V15.75C14,14.09 10.66,13.25 9,13.25C7.34,13.25 4,14.09 4,15.75V17H14M9,7A2.5,2.5 0 0,0 6.5,9.5A2.5,2.5 0 0,0 9,12A2.5,2.5 0 0,0 11.5,9.5A2.5,2.5 0 0,0 9,7M14,7V8H20V7H14M14,9V10H20V9H14M14,11V12H18V11H14" />
-        </svg>
-        <svg class='historySvg sec1Svg' style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12S17.5 2 12 2M17 13H11V7H12.5V11.5H17V13Z" />
-        </svg>
-        <svg class="tasksSvg sec1Svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M16,9H21.5L16,3.5V9M7,2H17L23,8V18A2,2 0 0,1 21,20H7C5.89,20 5,19.1 5,18V4A2,2 0 0,1 7,2M3,6V22H21V24H3A2,2 0 0,1 1,22V6H3Z" />
-        </svg>
-        <svg class="communitiesSvg sec1Svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
-        </svg>
-        <svg class="settingsSvg sec1Svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
-        </svg>
-        <svg class="supportSvg sec1Svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M11,18H13V16H11V18M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3Z" />
-        </svg>
-        <svg class="privacySvg sec1Svg" style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="currentColor"
-            d="M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z" />
-        </svg>
-      </div>
-    </div>
+.section1Items {
+  display: grid;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  column-gap: 12px;
+  font-size: 18px;
+  padding-top: 15px;
+  grid-template-areas:
+    'dashboardSvg dashboardText'
+    'blankspaceD blankspaceD'
+    'homeSvg homeText'
+    'profileSvg profileText'
+    'messageSvg messageText'
+    'historySvg historyText'
+    'tasksSvg tasksText'
+    'communitiesSvg communitiesText'
+    'blankspace blankspace'
+    'settingsSvg settingsText'
+    'supportSvg supportText'
+    'privacySvg privacyText'
+  ;
+}
 
-    <div class="section2">
-      <div class="section2Columns">
+.sec1Svg {
+  padding: 10px;
+  margin-left: 20px;
+}
 
-        <div class="section2Col1">
-          <div class="searchDiv">
-            <img class="searchSvg col1Items" src="./magnify.svg" alt="search bar icon">
-            <input class="searchInput col1Items" type="search">
-          </div>
-          <div class="greetingDiv">
-            <img class="odinIcon col1Items" src="./odin-tiny.png" alt="tiny odin">
-            <div class="greeting col1Items">
-              <p>Hi there,</p>
-              <h2>Odin Odinson (@odin)</h2>
-            </div>
-          </div>
-        </div>
+.dashboardText {
+  grid-area: dashboardText;
+}
 
-        <div class="section2Col2">
-          <div class="bellOdinName col2Items">
-            <svg class="bellSvg" style="width:24px;height:24px" viewBox="0 0 24 24">
-              <path fill="currentColor"
-                d="M10,21H14A2,2 0 0,1 12,23A2,2 0 0,1 10,21M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M17,11A5,5 0 0,0 12,6A5,5 0 0,0 7,11V18H17V11M19.75,3.19L18.33,4.61C20.04,6.3 21,8.6 21,11H23C23,8.07 21.84,5.25 19.75,3.19M1,11H3C3,8.6 3.96,6.3 5.67,4.61L4.25,3.19C2.16,5.25 1,8.07 1,11Z" />
-            </svg>
-            <img class='odinIcon2' src="./odin-tiny.png" alt="tiny odin">
-            <h4 class="odinName">Odin Odinson</h4>
-          </div>
-          <div class="buttons col2Items">
-            <button class="btn1">New</button>
-            <button class="btn2">Upload</button>
-            <button class="btn3">Share</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section3">
-      <h3 class="projectsText section3Items">Your Projects</h3>
-      <div class="projects section3Items">
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Super Cool Project</h4>
-            <p class="cardItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde quo maxime, quia
-              ipsa quaerat.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Less Cool Project</h4>
-            <p class="cardItem">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit reiciendis aperiam
-              commodi ex voluptate vel fuga magni alias.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Impossible App</h4>
-            <p class="cardItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde quo maxime, quia
-              ipsa quaerat.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Easy Peasy App</h4>
-            <p class="cardItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde quo maxime, quia
-              ipsa quaerat.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Ad Blocker</h4>
-            <p class="cardItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde quo maxime, quia
-              ipsa quaerat.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Money Maker</h4>
-            <p class="cardItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde quo maxime, quia
-              ipsa quaerat.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-        <div class="card section3Items">
-          <div class="cardItem cardTexts">
-            <h4 class="cardItem">Money Maker</h4>
-            <p class="cardItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde quo maxime, quia
-              ipsa quaerat.</p>
-          </div>
-          <div class="cardItem cardSvgs">
-            <img src="./star-plus-outline.svg" alt="add to favorites">
-            <img src="./eye-plus-outline.svg" alt="watch project">
-            <img src="./source-fork.svg" alt="view source code">
-          </div>
-        </div>
-      </div>
-      <h3 class="text1 sec3Side section3Items">Announcements</h3>
-      <div class="box1 sec3Side section3Items">
-        <div class='box1a'>
-          <h5>Site Maintenance</h5>
-          <p class='box1p1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repellat, assumenda voluptas
-            odio explicabo
-            et. <br><br></p>
-        </div>
-        <div class="box1b">
-          <h5>Community Share Day</h5>
-          <p class="box1p1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit similique odit quasi
-            cupiditate vitae nam <br><br>
-          </p>
-        </div>
-        <div class="box1c">
-          <h5>Updated Privacy Policy</h5>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veritatis optio voluptatem libero quo
-            quod.</p>
-        </div>
-      </div>
-      <div class="sec3side2">
-        <h3 class="text2 section3Items">Trending</h3>
-        <div class="box2 section3Items">
-          <div class="box2all box2a">
-            <img class="sec3Svg dogSvg" src="./dog-side.svg" alt="a dog profile icon">
-            <div class="sec3Texts">
-              <p>@tegan</p>
-              <p>World Peace Builder</p>
-            </div>
-          </div>
-          <div class="box2all box2b">
-            <img class="sec3Svg catSvg" src="./cat.svg" alt="a cat profile icon">
-            <div class="sec3Texts">
-              <p>@morgan</p>
-              <p>Super Cool Project</p>
-            </div>
-          </div>
-          <div class="box2all box2c">
-            <img class="sec3Svg alienSvg" src="./alien.svg" alt="an alien profile icon">
-            <div class="sec3Texts">
-              <p>@kendall</p>
-              <p>Life Changing App</p>
-            </div>
-          </div>
-          <div class="box2all box2d">
-            <img class="sec3Svg penguinSvg" src="./penguin.svg" alt="a penguin profile icon">
-            <div class="sec3Texts">
-              <p>@alex</p>
-              <p>No Traffic Maker</p>
-            </div>
-          </div>
-          <div class="box2all box2e">
-            <img class="sec3Svg penguinSvg" src="./penguin.svg" alt="a penguin profile icon">
-            <div class="sec3Texts">
-              <p>@alex</p>
-              <p>No Traffic Maker</p>
-            </div>
-          </div>
-        </div>
-      </div>
+#blankspaceD {
+  grid-area: blankspaceD;
+  padding: 20px;
+}
 
-    </div>
-  </div>
-</body>
+.homeText {
+  grid-area: homeText;
+}
 
-</html>
+.profileText {
+  grid-area: profileText;
+}
+
+.messageText {
+  grid-area: messageText;
+}
+
+.historyText {
+  grid-area: historyText;
+}
+
+.tasksText {
+  grid-area: tasksText;
+}
+
+.communitiesText {
+  grid-area: communitiesText;
+}
+
+#blankspace {
+  grid-area: blankspace;
+  padding: 20px;
+}
+
+.settingsText {
+  grid-area: settingsText;
+}
+
+.supportText {
+  grid-area: supportText;
+}
+
+.privacyText {
+  grid-area: privacyText;
+}
+
+.dashboardSvg {
+  grid-area: dashboardSvg;
+  margin-left: 20px;
+}
+
+.homeSvg {
+  grid-area: homeSvg;
+}
+
+.profileSvg {
+  grid-area: profileSvg;
+}
+
+.messageSvg {
+  grid-area: messageSvg;
+}
+
+.historySvg {
+  grid-area: historySvg;
+}
+
+.tasksSvg {
+  grid-area: tasksSvg;
+}
+
+.communitiesSvg {
+  grid-area: communitiesSvg;
+}
+
+.settingsSvg {
+  grid-area: settingsSvg;
+}
+
+.supportSvg {
+  grid-area: supportSvg;
+}
+
+.privacySvg {
+  grid-area: privacySvg;
+}
+
+/* SECTION 2 SECTION 2 SECTION 2 SECTION 2*/
+.section2 {
+  grid-area: section2;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0px 4px 5px lightblue;
+}
+
+.section2Columns {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas:
+    'section2Col1 section2Col2';
+  column-gap: 20px;
+}
+
+.section2Col1 {
+  display: grid;
+  grid-area: section2Col1;
+}
+
+.searchDiv {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  grid-template-columns: .10fr 1fr;
+  margin-left: 20px;
+}
+
+.searchSvg {
+  padding: 20px;
+  justify-self: right;
+}
+
+.searchInput {
+  display: grid;
+  background: rgb(211, 211, 211, 0.5);
+  border-radius: 30px;
+  font-size: large;
+  padding-left: 10px;
+  height: 30px;
+  border: none;
+}
+
+.greetingDiv {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: start;
+  margin-left: 40px;
+  column-gap: 20px;
+}
+
+.odinIcon {
+  background: yellow;
+  border-radius: 100%;
+  padding: 3px;
+  justify-self: right;
+}
+
+.greeting {
+  line-height: 30px;
+}
+
+.section2Col2 {
+  display: grid;
+  grid-area: section2Col2;
+  grid-template-areas:
+    'bellOdinName bellOdinName bellOdinName'
+    'buttons buttons buttons';
+}
+
+.col2Items {
+  margin-right: 60px;
+}
+
+.bellOdinName {
+  display: grid;
+  grid-auto-flow: column;
+  grid-area: bellOdinName;
+  justify-content: right;
+  column-gap: 30px;
+  padding-right: 10px;
+}
+
+.odinIcon2 {
+  height: 35%;
+  background: yellow;
+  border-radius: 50%;
+  padding: 3px;
+  margin-top: 10px;
+}
+
+.bellSvg {
+  padding: 20px 0px 20px 20px;
+}
+
+.odinName {
+  height: 30px;
+  padding-top: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-area: buttons;
+  justify-content: right;
+  column-gap: 30px;
+  padding-bottom: 20px;
+}
+
+button {
+  color: #fff;
+  background-color: #0095ff;
+  font-size: 13px;
+  padding: 6px .8em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30px;
+  text-decoration: none;
+  width: 90px;
+  height: 35px;
+  border: none;
+}
+
+/* SECTION 3 SECTION 3 SECTION 3 SECTION 3*/
+.section3 {
+  grid-area: section3;
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: 5fr minmax(250px, 250px);
+  column-gap: 20px;
+  grid-template-areas:
+    'projectsText text1'
+    'projects box1'
+    'projects text2'
+    'projects box2';
+}
+
+.projectsText {
+  grid-area: projectsText;
+  display: grid;
+  justify-content: left;
+  align-content: center;
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.projects {
+  grid-area: projects;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-content: start;
+  margin-left: 20px;
+  row-gap: 25px;
+  padding-bottom: 70px;
+  column-gap: 10px;
+}
+
+.card {
+  display: grid;
+  height: auto;
+  width: minmax(250px);
+  grid-template-rows: 2fr 1fr;
+  align-content: stretch;
+  background-color: orange;
+  border-radius: 7px;
+}
+
+.card>div {
+  margin-left: 10px;
+  padding: 20px;
+  background-color: white;
+}
+
+.cardTexts {
+  border-radius: 0px 7px 0px 0px;
+}
+
+.cardTexts>p {
+  font-weight: 300;
+  font-size: 14px;
+  padding-right: 60px;
+}
+
+.cardSvgs {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: end;
+  column-gap: 20px;
+  border-radius: 0px 0px 7px 0px;
+}
+
+.text1 {
+  grid-area: text1;
+  display: grid;
+  justify-content: left;
+  align-content: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.box1 {
+  grid-area: box1;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  margin-right: 30px;
+  align-content: start;
+  align-self: start;
+}
+
+.box1a {
+  display: grid;
+  align-self: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 7px 7px 0px 0px;
+}
+
+.box1b {
+  display: grid;
+  align-self: center;
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+}
+
+.box1c {
+  display: grid;
+  align-self: center;
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+  border: none;
+  border-radius: 0px 0px 7px 7px;
+}
+
+.box1p1 {
+  border-bottom: thin solid gray;
+}
+
+.box1>div>h5+p {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.text2 {
+  grid-area: text2;
+  display: grid;
+  justify-content: left;
+  align-content: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.box2 {
+  grid-area: box2;
+  display: grid;
+  grid-auto-flow: row;
+  margin-right: 30px;
+  justify-content: stretch;
+  height: 100%;
+}
+
+.box2all {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-content: start;
+  column-gap: 30px;
+  align-items: center;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.box2a {
+  padding-top: 25px;
+  border-radius: 7px 7px 0 0;
+}
+
+.box2b {
+  padding-top: 25px;
+}
+
+.box2c {
+  padding-top: 25px;
+}
+
+.box2d {
+  padding-top: 25px;
+}
+
+.box2e {
+  padding-top: 25px;
+  border-radius: 0 0 7px 7px;
+}
+
+.sec3Texts>p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.sec3Texts>p+p {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.sec3Svg {
+  width: 130%;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.dogSvg {
+  background-color: aliceblue;
+}
+
+.catSvg {
+  background-color: yellow;
+}
+
+.alienSvg {
+  background-color: lightcoral;
+}
+
+.penguinSvg {
+  background-color: pink;
+}
