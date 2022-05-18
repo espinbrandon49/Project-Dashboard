@@ -5,16 +5,6 @@
   font-weight: 700;
 }
 
-@media screen and (max-width: 945px) {
-  .container {
-    grid-template-columns: 85px 4fr;
-  }
-
-  .sec1text {
-    display: none;
-  }
-}
-
 .container {
   display: grid;
   grid-template-columns: minmax(80px, 230px) 4fr;
@@ -52,6 +42,16 @@
     'supportSvg supportText'
     'privacySvg privacyText'
   ;
+}
+
+@media screen and (max-width: 945px) {
+  .container {
+    grid-template-columns: 85px 4fr;
+  }
+
+  .sec1text {
+    display: none;
+  }
 }
 
 .sec1Svg {
