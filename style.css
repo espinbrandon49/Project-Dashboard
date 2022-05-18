@@ -14,9 +14,6 @@
     'section1 section3';
 }
 
-/* SECTION 1 SECTION 1 SECTION 1 SECTION 1 
-items need to be links*/
-
 .section1 {
   background-color: cornflowerblue;
   grid-area: section1;
@@ -63,20 +60,15 @@ items need to be links*/
   .bellSvg {
     display: none;
   }
-.sec3Svg {
-display: none;
-}
-  .sec1text {
+
+  .sec3Svg {
     display: none;
   }
 
-  .searchInput {
-    margin-right: 00px;
+  .sec1text {
+    display: none;
   }
-
 }
-
-.sec1text {}
 
 .sec1Svg {
   padding: 10px;
@@ -119,7 +111,6 @@ display: none;
 #blankspace {
   grid-area: blankspace;
   padding: 20px;
-
 }
 
 .settingsText {
@@ -192,17 +183,11 @@ display: none;
 }
 
 .section2Col1 {
-
   display: grid;
   grid-area: section2Col1;
 }
 
-.col1Items {
-
-}
-
 .searchDiv {
-
   display: grid;
   grid-auto-flow: column;
   align-items: center;
@@ -212,7 +197,7 @@ display: none;
 }
 
 .searchSvg {
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   justify-self: right;
 }
 
@@ -223,15 +208,14 @@ display: none;
   font-size: large;
   padding-left: 10px;
   height: 30px;
+  border: none;
 }
 
 .greetingDiv {
- 
   display: grid;
   grid-auto-flow: column;
   align-items: center;
   justify-content: start;
-
   margin-left: 40px;
   column-gap: 20px;
 }
@@ -459,7 +443,6 @@ button {
   background-color: white;
   padding-left: 20px;
   padding-right: 10px;
-
 }
 
 .box2a {
@@ -477,7 +460,6 @@ button {
 
 .box2d {
   padding-top: 25px;
-
 }
 
 .box2e {
